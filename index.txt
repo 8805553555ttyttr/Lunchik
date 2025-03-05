@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>By Lun4ik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+        .button-container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .clickable-image {
+            width: 100%;
+            height: 600px;
+            background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fred-button-isolated_44074-4297.jpg&tbnid=ClBPaX6de0BB5M&vet=1&imgrefurl=https%3A%2F%2Fru.freepik.com%2Fpremium-photo%2Fred-button-isolated_12303695.htm&docid=iQYjjF9WrFVYiM&w=626&h=352&source=sh%2Fx%2Fim%2Fm1%2F0&kgs=e455030ccb961fb2'); /* СЮДА МОЖЕТЕ ВСТАВИТЬ ФОН ДЛЯ КНОПКИ ПО URL */
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            border-radius: 40px;
+            transition: transform 0.2s;
+        }
+        .clickable-image:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .clickable-image {
+                height: 700px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <div class="clickable-image" onclick="playSound()"></div>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="data:audio/mpeg;base64,PR1iwthygsLC0jRUYIxJuzKq7HWqjVJpVqZKFma1op2Ztr/7WV3FTWZhaSQEtwlcdf/YDQNA1DjkBrVykAACgCbKpAwAhwLTLjV6WScovKgFbXF2WGrpiubRkJRkVgJIJycmROesdCUJT5Veo0fXOXbMtusrVp7Vbla12rvVq0+zWq3mnqWaes9PTMsu7WvNLXZnLatJqq2W9db52szMz0+0uDoKnRKWf//////6GZ//ugRNyAA7wxyWMvSuBo6CovYMidDEjBP/WEACHwniRytMAAe/jQkaetRGYKYJUIUIUHo4FAQywAAK4zRXGeJ7JgARzH/M2CjRSvXf8w0JCAulgBwLIElq4dIDZ8MVot+MmGqBQA4FstaPxKYuccYnQXJ/+aEHJ83IoXP4DD4IO+atAYfBABh82Mf/uTd///9mLc9/61P/8wKjkHKrsgEoEMEIEYeCgMAgFAE1N4Vlbw8WmBgdz99MiBAymN///MRh0BC+lgeGAZBENTR4DQANowbNqdSvC+4ASAsMDlEUnRLvwuDDV4pcMSCCiLucU/5EBmxzyfGYHM//zQny+blwuGn/B8CAgD7//KBgHwIGAf+lf+UOB8owDgQMquxX///zaBV9S8EgEgEAEgDgHAoAAAAAAAWXAHErgdoHE+DZkG7fE2BavBXhigtP45TIexLf5iPUumRe+FQ0Ik4JAKAJAHAIAOBAAAAAAAAIiAGUk+B/sBQfgdrgcE+B2AA94LcMULT+C2jGC1CZf5NGFJUyHt8KhoRExBTUUzLjk5LjOqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//uQRPAAA4snSv5uIACJhjpfzk0EBtRln/km+gDpjLP/Jt9AqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqVEFHPz8/Pz8/ID8/Pz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAyMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8=" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
+    <script>
+        function playSound() {
+            var audio = document.getElementById('background-music');
+            audio.muted = false;
+            audio.play().catch(function(error) {
+                console.log("Ошибка воспроизведения: ", error);
+            });
+        }
+
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            audio.play().catch(function(error) {
+                console.log("Автовоспроизведение заблокировано. Пользователь должен взаимодействовать с сайтом.");
+            });
+        });
+    </script>
+</body>
+</html>
